@@ -1,17 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import Card from "./Cards";
+import Data from "./Data";
+import "./index.css";
+// console.log(Data[0].name);
 
+function person(val) {
+  console.log(val);
+  return (
+    <Card imgsrc={val.imgsrc} name={val.name} life={val.life} des={val.des} />
+  );
+}
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <>
+    <h1 className="heading">
+      The top 10 greatest indians who have received the Bharat Ratna
+    </h1>
+    {Data.map(person)}
+  </>,
+  document.getElementById("root")
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
